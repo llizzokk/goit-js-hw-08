@@ -88,12 +88,13 @@ function handleClick(event) {
   event.preventDefault();
   if (event.target.classList.contains("gallery")) {
     return;
-  }
-  const instance = basicLightbox.create(
-    `<div class="modal">
+  } else if (event.target.nodeName === "IMG") {
+    const instance = basicLightbox.create(
+      `<div class="modal">
     <img src=${event.target.dataset.source} width="1112" height="640">
     </div>
     `
-  );
-  instance.show();
+    );
+    instance.show();
+  }
 }
